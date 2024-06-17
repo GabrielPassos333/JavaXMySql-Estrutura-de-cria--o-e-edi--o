@@ -1,3 +1,5 @@
+- ![Java](https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg) Java
+- ![SQL](https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png) SQL
 
 ## Começando
 
