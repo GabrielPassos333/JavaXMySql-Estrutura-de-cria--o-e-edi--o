@@ -30,4 +30,4 @@ Neste repositório, as seguintes linguagens foram utilizadas:
 
 A combinação dessas linguagens permite a criação de uma conexão com um banco de dados e a edição desse banco de dados.
 
-[Download do MySQL Connector/J](https://example.com/mysql-connector-download)
+[Download do MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
