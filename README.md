@@ -29,3 +29,5 @@ Neste repositório, as seguintes linguagens foram utilizadas:
 - ![SQL](https://example.com/sql-icon.png) SQL
 
 A combinação dessas linguagens permite a criação de uma conexão com um banco de dados e a edição desse banco de dados.
+
+[Download do MySQL Connector/J](https://example.com/mysql-connector-download)
