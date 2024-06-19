@@ -7,6 +7,18 @@ public class Usuario {
   private String login;
   private String email;
   private String senha;
+
+  // Novo construtor com todos os atributos
+  public Usuario(String nome, String login, String senha, String email) {
+    this.nome = nome;
+    this.login = login;
+    this.senha = senha;
+    this.email = email;
+}
+
+  // Construtor vazio
+  public Usuario() {
+  }
   
   public int getCodigo() {
     return codigo;

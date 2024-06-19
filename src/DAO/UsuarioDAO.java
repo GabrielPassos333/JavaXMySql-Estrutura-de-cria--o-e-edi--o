@@ -29,17 +29,36 @@ public class UsuarioDAO {
       ps.setString(3, usuario.getSenha());
       ps.setString(4, usuario.getEmail());
       
-      ps.execute();// executa o comando sql
-    } catch (SQLException e) {
-      e.printStackTrace();
-    } finally {
-      try {
+    //   ps.execute();// executa o comando sql
+    // } catch (SQLException e) {
+    //   e.printStackTrace();
+    // } finally {
+    //   try {
+    //     if (ps != null) ps.close();
+    //     if (conexao != null) conexao.close();
+    //   } catch (SQLException e) {
+    //     e.printStackTrace();
+    //   }
+    // }
+    int linhasAfetadas = ps.executeUpdate(); // executa o comando sql e retorna o número de linhas afetadas
+
+    if (linhasAfetadas > 0) {
+        System.out.println("Cadastro realizado com sucesso!");
+    } else {
+        System.out.println("Falha ao realizar cadastro.");
+    }
+} catch (SQLException e) {
+    System.out.println("Erro ao realizar cadastro: " + e.getMessage());
+    e.printStackTrace();
+} finally {
+    try {
         if (ps != null) ps.close();
         if (conexao != null) conexao.close();
-      } catch (SQLException e) {
+    } catch (SQLException e) {
         e.printStackTrace();
-      }
     }
+}
+
   }
   //--------------------------------------------
   
@@ -115,39 +134,6 @@ public class UsuarioDAO {
     }
 
     //--------------------------------------------
-
-    /**
-     * Método para listar os ids dos usuários cadastrados no banco de dados
-     */
-    public void listarIds() {
-      String sql = "SELECT idusuario FROM usuario";
-      Connection conexao = null;
-      PreparedStatement ps = null;
-      ResultSet rs = null;
-
-      try {
-          conexao = Conexao.getConexao();
-          ps = conexao.prepareStatement(sql);
-          rs = ps.executeQuery();
-
-          while (rs.next()) {
-              int id = rs.getInt("idusuario");
-              System.out.println("ID: " + id);
-          }
-      } catch (SQLException e) {
-          e.printStackTrace();
-      } finally {
-          try {
-              if (rs != null) rs.close();
-              if (ps != null) ps.close();
-              if (conexao != null) conexao.close();
-          } catch (SQLException e) {
-              e.printStackTrace();
-          }
-      }
-    }
-    //--------------------------------------------
-
     /**
      * Método para editar um usuário no banco de dados
      * @param usuario - objeto do tipo Usuario, com nome, login, senha e email
@@ -183,4 +169,36 @@ public class UsuarioDAO {
           }
       }
     }
+       
+    /**
+     * Método para listar os ids dos usuários cadastrados no banco de dados
+     */
+    // public void listarIds() {
+    //   String sql = "SELECT idusuario FROM usuario";
+    //   Connection conexao = null;
+    //   PreparedStatement ps = null;
+    //   ResultSet rs = null;
+
+    //   try {
+    //       conexao = Conexao.getConexao();
+    //       ps = conexao.prepareStatement(sql);
+    //       rs = ps.executeQuery();
+
+    //       while (rs.next()) {
+    //           int id = rs.getInt("idusuario");
+    //           System.out.println("ID: " + id);
+    //       }
+    //   } catch (SQLException e) {
+    //       e.printStackTrace();
+    //   } finally {
+    //       try {
+    //           if (rs != null) rs.close();
+    //           if (ps != null) ps.close();
+    //           if (conexao != null) conexao.close();
+    //       } catch (SQLException e) {
+    //           e.printStackTrace();
+    //       }
+    //   }
+    // }
+    //--------------------------------------------
 }
